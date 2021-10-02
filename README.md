@@ -1,10 +1,10 @@
 # Crowd-Counting-DEMO
 A simple Flask application that allow you to try different crowd counting models with different samples from various datasets
 
-This project is based on the [C^3-Framework](https://github.com/gjy3035/C-3-Framework) and [NPWU-Crowd-Sample-Code](https://github.com/gjy3035/NWPU-Crowd-Sample-Code) on which the models have been trained:
+This project is based on the [C^3-Framework](https://github.com/gjy3035/C-3-Framework) and [NPWU-Crowd-Sample-Code](https://github.com/gjy3035/NWPU-Crowd-Sample-Code) on which the models were trained:
 - (C-3-Framework): Gao, Junyu and Lin, Wei and Zhao, Bin and Wang, Dong and Gao, Chenyu and Wen, Jun, [C^3 Framework: An Open-source PyTorch Code for Crowd Counting](https://arxiv.org/abs/1907.02724), arXiv preprint arXiv:1907.02724, (2019)
 
-This repo also contains some samples from varius dataset:
+This repo also contains some samples from various dataset:
 
 - (ShanghaiTech): Yingying Zhang, Desen Zhou, [Single Image Crowd Counting via Multi Column Convolutional Neural Network](https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/Zhang_Single-Image_Crowd_Counting_CVPR_2016_paper.pdf), IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2016
 
