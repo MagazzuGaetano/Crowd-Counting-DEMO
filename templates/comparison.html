@@ -1,0 +1,33 @@
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/comparison.css') }}">
+{% endblock head %}
+
+{% block body %}
+
+<div class="comparison">
+
+    <div class="comparison-1">
+        <div class="content">
+            <label for="curr_txt" id="curr_label">numero persone(gt): </label>
+            <input id="curr_txt" type="text" value="0">
+
+            <br />
+
+            <img id="curr_image" src="{{ url_for('static', filename='default.png') }}" alt="test image">
+        </div>
+    </div>
+
+    <div class="comparison-2">
+        <div class="content">
+            <label for="pred_txt" id="pred_label">numero persone(pred): </label>
+            <input id="pred_txt" type="text" value="0">
+
+            <br />
+
+            <img id="pred_img" src="{{ url_for('static', filename='default.png') }}" alt="density map">
+        </div>
+    </div>
+
+</div>
+
+{% endblock body %}

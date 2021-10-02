@@ -1,0 +1,9 @@
+# TO DO:
+
+# - Refactoring
+
+# - Permettere l'utilizzo completo in CPU
+
+# - Riportare i tempi di predizione e se si è usata la cpu o la gpu per la computazione
+
+# - Permettere l'upload di un immagine nuova e la predizione su di essa

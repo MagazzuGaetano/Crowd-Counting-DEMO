@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+    <div class="container">
+    
+        <h1>{{ title }}</h1>
+
+        <label for="datasets">Dataset:</label>
+
+        <select name="datasets" id="datasets">
+            <option value="SHHB">SHHB</option>
+            <option value="SHHA">SHHA</option>
+            <option value="UCC-CF-50">UCC-CF-50</option>
+            <option value="QNRF">QNRF</option>
+            <option value="NPWU-CROWD">NPWU-CROWD</option>
+            <option value="JHU-CROWD">JHU-CROWD</option>
+        </select>
+
+        <br />
+
+        <label for="models">Modello:</label>
+
+        <select name="models" id="models">
+            <option value="alexnet">AlexNet</option>
+            <option value="vgg">VGG</option>
+            <option value="vgg_decoder">VGG_Decoder</option>
+            <option value="resnet50">ResNet50</option>
+            <option value="resnet101">ResNet101</option>
+            <option value="sfcn+">SFCN+</option>
+            <option value="scar">SCAR</option>
+            <option value="csrnet">CSRNet</option>
+            <option value="sanet">SANet</option>
+            <option value="mcnn">MCNN</option>
+        </select>
+
+        <br />
+        <br />
+
+        {% include "slider.html" %}
+
+        <br />
+        <br />
+
+        <input type="button" id="pred_btn" value="predict"/>
+
+        <br />
+        <br />
+
+        {% include "comparison.html" %}
+
+        <br />
+        <br />
+        <br />
+        <br />
+
+    </div>
+
+    <script src="{{ url_for('static', filename='js/code.js') }}"></script>
+
+{% endblock %}

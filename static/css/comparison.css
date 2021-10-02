@@ -1,0 +1,19 @@
+.comparison {
+    width: 100%;
+    height: 250px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.comparison-1, .comparison-2 {
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    align-self: center;
+}
+
+.comparison img {
+    height: 256px;
+    width: 341.33px;
+}
+
