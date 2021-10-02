@@ -125,5 +125,9 @@ venv.bak/
 .dmypy.json
 dmypy.json
 
+# big models
+./static/models/4_sfcn+.pth
+./static/models/1_resnet101.pth
+
 # Pyre type checker
 .pyre/
