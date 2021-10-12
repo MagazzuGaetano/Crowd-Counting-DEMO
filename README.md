@@ -3,9 +3,6 @@ A simple Flask application that allow you to try different crowd counting models
 
 ![photo_2021-10-02_18-19-26](https://user-images.githubusercontent.com/30373288/135724589-f116bd7c-1555-498e-9418-68dc458740ca.jpg)
 
-# Models
-- This repo use git-lfs files to track the models you'll need Git Large File Storage (LFS)
-
 # Citations
 
 This project is based on the [C^3-Framework](https://github.com/gjy3035/C-3-Framework) and [NPWU-Crowd-Sample-Code](https://github.com/gjy3035/NWPU-Crowd-Sample-Code) on which the models were trained:
