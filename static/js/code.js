@@ -12,7 +12,7 @@ slider = document.getElementById('slider') // slider component
 slider_imgs = document.querySelectorAll('#slider img') // current selected dataset images
 
 cur_img = document.getElementById('curr_image') // current selected image
-gt_count = document.getElementById("curr_txt")
+gt_count = document.getElementById("curr_txt") // label that show the ground truth
 
 
 // ip address (define without last slash)
@@ -45,19 +45,23 @@ const updateCurrImage = image => {
     }
 
     pred_img.src = default_img;
-    pred_txt.value = 0;
+    pred_txt.innerHTML = 0;
 
     last_path = cur_img.src;
     last_img_name = cur_img.getAttribute('img_name')
 }
 
 const getGroundtruth = () => {
+    if (cur_img.getAttribute('img_name') !== 'none') {
         fetch(`${url_address}/groundtruth/${cur_img.getAttribute('img_name')}/?dataset=${dataset.value}`)
         .then(res => res.json())
         .then(res => {
-            gt_count.value =  res.human_num
+            gt_count.innerHTML =  res.human_num
         })
         .catch(err => console.log(err))
+    } else {
+        gt_count.innerHTML = 0
+    }
 }
 
 const generateImages = (images) => {
@@ -116,7 +120,7 @@ const predict = () => {
     fetch(`${url_address}/predict`, options)
         .then(res => res.json())
         .then(res => {
-            pred_txt.value = res
+            pred_txt.innerHTML = res
             pred_img.src = url_address + '/static/map.jpg'
             /*window.location.href = "http://localhost:5000/predict/" + res;*/
         })
@@ -126,8 +130,8 @@ const predict = () => {
 
 // update images when the page is been loaded
 window.addEventListener("load",  () => {
-  console.log('loading...')
-  updateSlider()
+    console.log('loading...')
+    updateSlider()
 })
 
 datasets.addEventListener('change', e => {
@@ -136,7 +140,7 @@ datasets.addEventListener('change', e => {
 
 model.addEventListener('change', e => {
     pred_img.src = default_img;
-    pred_txt.value = 0;
+    pred_txt.innerHTML = 0;
 })
 
 pred_btn.onclick = e => {
