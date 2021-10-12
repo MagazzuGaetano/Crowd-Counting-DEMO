@@ -43,7 +43,7 @@ def get_images():
     imgs = os.listdir(folder)
 
     data = [{"path": folder + "/" + file, "name": file.replace(".jpg", "")} for file in imgs if file.endswith(".jpg")]
-    data = data[:10] #mostro solo le prime 10 immagini
+    data = data[:10] #return only the first 10 images
 
     return app.response_class(
         response=json.dumps(data),
