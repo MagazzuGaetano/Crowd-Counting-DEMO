@@ -29,8 +29,6 @@ class CrowdCounter(nn.Module):
 
         self.CCN = net()
 
-    def test_forward(self, img, device):
-        self.CCN = self.CCN.to(device)
-        img = img.to(device)                               
+    def test_forward(self, img):               
         density_map = self.CCN(img)                    
         return density_map

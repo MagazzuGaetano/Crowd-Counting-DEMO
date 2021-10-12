@@ -4,6 +4,7 @@ from models.CrowdCounter import CrowdCounter
 import torchvision.transforms as standard_transforms
 from torch.autograd import Variable
 
+import time
 from PIL import Image
 import numpy as np
 import cv2
@@ -97,14 +98,14 @@ def get_model_filename(model_name):
     return model_path
 
 def predict(dataset, image, model):
-    torch.cuda.set_device(0)
+    device = "gpu" if torch.cuda.is_available() else "cpu"
     torch.backends.cudnn.benchmark = True
 
     img = Image.open('./' + image)
-    net = CrowdCounter(model)
+    net = CrowdCounter(model).to(device)
     model_path = 'static/models/' + get_model_filename(model)
 
-    checkpoint = torch.load(model_path)
+    checkpoint = torch.load(model_path, map_location=device)
     mean_std = checkpoint['mean_std']
     net.load_state_dict(checkpoint['state_dict'], strict=False)
     net.cuda()
@@ -119,16 +120,15 @@ def predict(dataset, image, model):
     img = img_transform(img)
 
     with torch.no_grad():
-        img = Variable(img[None,:,:,:]).cuda()
-        if not(torch.cuda.is_available()):
-            device = "cpu"
-        else:
-            device = None
-        pred_map = net.test_forward(img, device)
+        img = Variable(img[None,:,:,:]).to(device)
+
+        start_time = time.time()
+        pred_map = net.test_forward(img)
+        pred_time = time.time() - start_time
 
     pred_map = pred_map.cpu().data.numpy()[0, 0, :, :]
     pred = np.sum(pred_map) / 100.0
     pred_map = pred_map / np.max(pred_map + 1e-20)
 
-    return pred_map, pred
+    return pred_map, pred, device, pred_time
 

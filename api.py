@@ -28,10 +28,10 @@ def predict_page():
     image = request.json['image']
     model = request.json['model']
 
-    pred_map, pred_cnt = predict(dataset, image, model)
+    pred_map, pred_cnt, device, pred_time = predict(dataset, image, model)
     save_map(pred_map)
 
-    return str(pred_cnt)
+    return '{}, took {} seconds on {}'.format(pred_cnt, device, pred_time)
 
 
 @app.route('/images/', methods=['GET'])
