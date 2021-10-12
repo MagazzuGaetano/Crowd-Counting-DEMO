@@ -2,8 +2,8 @@
 
 # - Refactoring
 
-# - Permettere l'utilizzo completo in CPU
+# - Allow full-use of the software on CPU
 
-# - Riportare i tempi di predizione e se si è usata la cpu o la gpu per la computazione
+# - Report timing result then if it was trained on CPU or GPU
 
-# - Permettere l'upload di un immagine nuova e la predizione su di essa
+# - Allow upload of a new image for prediction
