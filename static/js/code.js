@@ -126,7 +126,8 @@ const predict = () => {
     fetch(url, options)
         .then(res => res.json())
         .then(res => {
-            pred_txt.innerHTML = res
+            const {pred_cnt, pred_time, device} = res
+            pred_txt.innerHTML = `${pred_cnt}, took ${pred_time} seconds on ${device}`
             pred_img.src = [url_address, 'static/map.jpg'].join('/')
             /*window.location.href = "http://localhost:5000/predict/" + res;*/
         })

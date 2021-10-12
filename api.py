@@ -1,5 +1,6 @@
 import os
 from flask import Flask, render_template, request, json
+from numpy import result_type
 from flask_cors import CORS
 from misc.utils import predict, save_map
 
@@ -31,7 +32,12 @@ def predict_page():
     pred_map, pred_cnt, device, pred_time = predict(dataset, image, model)
     save_map(pred_map)
 
-    return '{}, took {} seconds on {}'.format(pred_cnt, device, pred_time)
+    res = {
+        'pred_cnt': pred_cnt,
+        'pred_time': pred_time,
+        'device': device
+    }
+    return json.dumps(res)
 
 
 @app.route('/images/', methods=['GET'])

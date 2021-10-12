@@ -108,7 +108,6 @@ def predict(dataset, image, model):
     checkpoint = torch.load(model_path, map_location=device)
     mean_std = checkpoint['mean_std']
     net.load_state_dict(checkpoint['state_dict'], strict=False)
-    net.cuda()
     net.eval()
 
     img_transform = standard_transforms.Compose(
