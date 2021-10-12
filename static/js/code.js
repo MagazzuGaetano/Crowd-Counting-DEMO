@@ -15,7 +15,7 @@ cur_img = document.getElementById('curr_image') // current selected image
 gt_count = document.getElementById("curr_txt") // label that show the ground truth
 
 
-// ip address (define without last slash)
+// ip address
 url_address = ''
 
 // dropdown initialization
@@ -23,7 +23,7 @@ dataset.selelectedIndex = 0
 model.selelectedIndex = 0
 
 // slider initialization
-default_img = url_address + '/static/default.png'
+default_img = [url_address, 'static/default.png'].join('/')
 default_img_name = 'none'
 
 cur_img.src = default_img
@@ -53,7 +53,12 @@ const updateCurrImage = image => {
 
 const getGroundtruth = () => {
     if (cur_img.getAttribute('img_name') !== 'none') {
-        fetch(`${url_address}/groundtruth/${cur_img.getAttribute('img_name')}/?dataset=${dataset.value}`)
+        url = [
+            url_address, 
+            `groundtruth/${cur_img.getAttribute('img_name')}/?dataset=${dataset.value}`
+        ].join('/')
+
+        fetch(url)
         .then(res => res.json())
         .then(res => {
             gt_count.innerHTML =  res.human_num
@@ -83,11 +88,11 @@ const generateImages = (images) => {
 }
 
 const updateSlider = () => {
-    fetch(`${url_address}/images/?dataset=${dataset.value}`)
+    url = [url_address, `images/?dataset=${dataset.value}`].join('/')
+    fetch(url)
     .then(res => res.json())
     .then(images => {
         generateImages(images)
-        //getGroundtruth() // why???
     })
     .catch(err => console.log(err))
 }
@@ -117,11 +122,12 @@ const predict = () => {
         body: JSON.stringify(data)
     }
 
-    fetch(`${url_address}/predict`, options)
+    url = [url_address, 'predict'].join('/')
+    fetch(url, options)
         .then(res => res.json())
         .then(res => {
             pred_txt.innerHTML = res
-            pred_img.src = url_address + '/static/map.jpg'
+            pred_img.src = [url_address, 'static/map.jpg'].join('/')
             /*window.location.href = "http://localhost:5000/predict/" + res;*/
         })
         .catch(err => console.log(err))
