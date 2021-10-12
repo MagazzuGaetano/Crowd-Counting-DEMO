@@ -5,8 +5,6 @@ A simple Flask application that allow you to try different crowd counting models
 
 # Models
 - This repo use git-lfs files to track the models you'll need Git Large File Storage (LFS)
-- install git-lfs
-- git lfs pull --include "*.pth"
 
 # Citations
 
