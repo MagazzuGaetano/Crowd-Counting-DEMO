@@ -1,28 +1,28 @@
 pred_btn = document.querySelector('#pred_btn')
 
-dataset = document.getElementById('datasets') //dataset selezionato
-dataset_options = document.querySelectorAll('#datasets option') //lista dei datasets
+dataset = document.getElementById('datasets') // current selected dataset
+dataset_options = document.querySelectorAll('#datasets option') // datasets list
 
-model = document.getElementById('models') //modello selezionato
+model = document.getElementById('models') // current selected model
 
-pred_txt = document.getElementById('pred_txt') //etichetta che mostra il conto predetto
-pred_img = document.getElementById('pred_img') //mappa di densità predettà
+pred_txt = document.getElementById('pred_txt') // label that show the predicted count
+pred_img = document.getElementById('pred_img') // predicted density map
 
-slider = document.getElementById('slider') //componente slider
-slider_imgs = document.querySelectorAll('#slider img') //immaggini della partizione del dataset selezionato
+slider = document.getElementById('slider') // slider component
+slider_imgs = document.querySelectorAll('#slider img') // current selected dataset images
 
-cur_img = document.getElementById('curr_image') //immagine selezionata
+cur_img = document.getElementById('curr_image') // current selected image
 gt_count = document.getElementById("curr_txt")
 
 
-// indirizzo ip (deve finire senza slash)
+// ip address (define without last slash)
 url_address = ''
 
-// inizializzo i valori delle dropdown
+// dropdown initialization
 dataset.selelectedIndex = 0
 model.selelectedIndex = 0
 
-// setting iniziali dello slider al caricamento della pagina
+// slider initialization
 default_img = url_address + '/static/default.png'
 default_img_name = 'none'
 
@@ -124,7 +124,7 @@ const predict = () => {
 }
 
 
-// aggiorno le immagini quando viene caricata la pagina
+// update images when the page is been loaded
 window.addEventListener("load",  () => {
   console.log('loading...')
   updateSlider()
