@@ -1,7 +1,7 @@
 # Crowd-Counting-DEMO
 A simple Flask application that allow you to try different crowd counting models with different samples from various datasets
 
-![photo_2021-10-02_18-19-26](https://user-images.githubusercontent.com/30373288/135724589-f116bd7c-1555-498e-9418-68dc458740ca.jpg)
+![image_2021-10-13_02-13-21](https://user-images.githubusercontent.com/30373288/137045852-728b73c7-c3eb-45f8-864b-dcea7f5eaa1f.png)
 
 # Citations
 
