@@ -2,7 +2,6 @@
 A simple Flask application that allow you to try different crowd counting models with different samples from various datasets
 
 ![photo_2021-10-13_18-36-33](https://user-images.githubusercontent.com/30373288/137176670-72335f70-e340-4b55-be21-038e6b2f33d9.jpg)
-![image](https://user-images.githubusercontent.com/30373288/137177060-1a2d9bfc-8797-4265-9058-c19e31528562.png)
 
 # Citations
 
