@@ -2,8 +2,5 @@
 
 # - Refactoring
 
-# - Allow full-use of the software on CPU
-
-# - Report timing result then if it was trained on CPU or GPU
-
 # - Allow upload of a new image for prediction
+
